@@ -26,7 +26,7 @@ public class BankDBReader extends ConnectionToBankDB {
         return result;
     }
 
-    public boolean isCorrectPassword(String cardNumber, int password) {
+    public boolean isCorrectPassword(String cardNumber, String password) {
         String query = "SELECT clients.pin FROM clients WHERE clients.card_number = \'" + cardNumber + "\'";
         boolean result = false;
 
@@ -35,7 +35,7 @@ public class BankDBReader extends ConnectionToBankDB {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                if (resultSet.getInt("pin") == password) {
+                if (resultSet.getString("pin").equals(password)) {
                     result = true;
                 }
             }

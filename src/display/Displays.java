@@ -1,8 +1,8 @@
-package displays;
+package display;
 
-import engines.EngForWithdraw;
-import engines.FirstEngine;
-import engines.SecondEngine;
+import engine.EngForWithdraw;
+import engine.FirstEngine;
+import engine.SecondEngine;
 
 import javax.swing.*;
 import java.awt.*;

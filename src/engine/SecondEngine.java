@@ -1,5 +1,5 @@
-package engines;
-import displays.Displays;
+package engine;
+import display.Displays;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

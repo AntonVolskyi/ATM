@@ -1,7 +1,7 @@
-package engines;
+package engine;
 
-import displays.BlockWindow;
-import displays.Displays;
+import display.BlockWindow;
+import display.Displays;
 import dao.BankDBReader;
 import strongbox.Strongbox;
 
@@ -16,7 +16,7 @@ import java.awt.event.KeyEvent;
 Клас и его наследники отвечающие за действия кнопок на панели.
  */
 
-public class FirstEngine implements ActionListener{
+public class FirstEngine implements ActionListener {
 
     protected Displays d;
     protected static String cardNumber;
@@ -28,17 +28,17 @@ public class FirstEngine implements ActionListener{
     private Frame frame;
     private int t = 3;
 
-    public FirstEngine(Displays d){
+    public FirstEngine(Displays d) {
         this.d = d;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
 
         Object src = e.getSource();
         ATMMoney = strongbox.ATMMoneyReader();
 
-        if (src == d.getButtonCenter()){
+        if (src == d.getButtonCenter()) {
             /*
              Вызывается окно для выбора номера карты
              и ввода пароля.
@@ -56,7 +56,7 @@ public class FirstEngine implements ActionListener{
             JComboBox cards = new JComboBox(arrCardNumber());
             JLabel password = new JLabel("Введите пароль: ");
             JPasswordField inputPass = new JPasswordField(10);
-            JPanel p = new JPanel(new GridLayout(1,2,5,0));
+            JPanel p = new JPanel(new GridLayout(1, 2, 5, 0));
 
             p.add(OK);
             p.add(cancel);
@@ -71,11 +71,11 @@ public class FirstEngine implements ActionListener{
             p2.add(inputPass);
 
             JPanel windowContent = new JPanel(new BorderLayout());
-            windowContent.add("South",p1);
+            windowContent.add("South", p1);
             windowContent.add(p2);
 
             frame.add(windowContent);
-            frame.setSize(300,150);
+            frame.setSize(300, 150);
             frame.setResizable(false);
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
@@ -91,16 +91,17 @@ public class FirstEngine implements ActionListener{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     cardNumber = arrCardNumber()[cards.getSelectedIndex()];
-                    if (bankDBReader.isCorrectPassword(cardNumber, Integer.parseInt(inputPass.getText()))){
+                    if (bankDBReader.isCorrectPassword(cardNumber, inputPass.getText())) {
                         d.SecondDisplay();
                         frame.setVisible(false);
-                        cardMoney =  bankDBReader.getCardBalance(cardNumber);
-                    }else{
+                        cardMoney = bankDBReader.getCardBalance(cardNumber);
+                    } else {
                         t--;
-                        if (t == 0){
+                        if (t == 0) {
                             BlockWindow blockWindow = new BlockWindow();
+                            blockWindow.createBlockWindow();
                             t = 3;
-                        }else {
+                        } else {
                             JOptionPane.showConfirmDialog(null,
                                     "Вы ввели неверный пароль.\n" +
                                             "Осталось попыток ввода " + t,
@@ -120,14 +121,14 @@ public class FirstEngine implements ActionListener{
         }
     }
 
-    private String[] arrCardNumber(){
+    private String[] arrCardNumber() {
      /*
     Метод отвечающий за переписывания колекции в масив
     так как JComboBox не принимает колекции
      */
 
         String arrCardNumber[] = new String[bankDBReader.getCardNumbers().size()];
-        for (int i = 0; i < bankDBReader.getCardNumbers().size(); i++){
+        for (int i = 0; i < bankDBReader.getCardNumbers().size(); i++) {
             arrCardNumber[i] = (String) bankDBReader.getCardNumbers().get(i);
         }
         return arrCardNumber;
