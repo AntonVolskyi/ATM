@@ -100,7 +100,7 @@ public class GetMoneyEngine implements ActionListener {
 
         moneyInATM -= sum;
         strongbox.ATMMoneyWriter(moneyInATM);
-        dbWrighter.setNewBalance(UserData.CARD_NUMBER, sum);
+        dbWrighter.setNewBalanceForSender(UserData.CARD_NUMBER, sum);
 
         JOptionPane.showConfirmDialog(null,
                 "Візьміть гроші",

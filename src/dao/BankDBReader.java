@@ -64,7 +64,7 @@ public class BankDBReader extends ConnectionToBankDB {
         return result;
     }
 
-    public  String getCardSaveBalance(String cardNumber) {
+    public String getCardSaveBalance(String cardNumber) {
         String query = "SELECT card_balance.saving_balance FROM card_balance WHERE card_balance.card_number = \'" + cardNumber + "\'";
         String result = "0";
 
@@ -74,6 +74,25 @@ public class BankDBReader extends ConnectionToBankDB {
 
             while (resultSet.next()) {
                 result = resultSet.getString("saving_balance");
+            }
+        } catch (SQLException e) {
+            System.err.println("Connection to DB failed!");
+            System.err.println(e.getMessage());
+        }
+        return result;
+    }
+
+    public boolean isCardExist(String cardNumber) {
+        boolean result = false;
+        String query = "SELECT COUNT(*) FROM clients WHERE card_number = \'" + cardNumber + "\'";
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int count = resultSet.getInt("count");
+                result = count > 0;
             }
         } catch (SQLException e) {
             System.err.println("Connection to DB failed!");

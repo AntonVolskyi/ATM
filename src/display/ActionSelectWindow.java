@@ -15,6 +15,7 @@ public class ActionSelectWindow {
     private JButton getMoneyFromBalanceButton;
     private JButton startWorkWithSavingBalanceButton;
     private JButton endWorkButton;
+    private JButton sentMoneyToAnotherCardButton;
     private JLabel message;
     private JFrame frame;
     private Dimension dimension;
@@ -29,6 +30,7 @@ public class ActionSelectWindow {
         getMoneyFromBalanceButton = new JButton("Зняти кошти");
         endWorkButton = new JButton("Завершити сеанс");
         startWorkWithSavingBalanceButton = new JButton("Ощадний рахунок");
+        sentMoneyToAnotherCardButton = new JButton("Переказ на іншу карту");
         message = new JLabel("Виберіть дію");
         frame = new JFrame("Select Action");
         dimension = new Dimension(700,500);
@@ -39,11 +41,13 @@ public class ActionSelectWindow {
         actionButtonWrapper.add(getMoneyFromBalanceButton);
         actionButtonWrapper.add(checkBalanceButton);
         actionButtonWrapper.add(startWorkWithSavingBalanceButton);
+        actionButtonWrapper.add(sentMoneyToAnotherCardButton);
 
         getMoneyFromBalanceButton.addActionListener(actionSelectEngine);
         checkBalanceButton.addActionListener(actionSelectEngine);
         endWorkButton.addActionListener(actionSelectEngine);
         startWorkWithSavingBalanceButton.addActionListener(actionSelectEngine);
+        sentMoneyToAnotherCardButton.addActionListener(actionSelectEngine);
 
         endWorkWrapper.add(endWorkButton);
 
@@ -84,5 +88,9 @@ public class ActionSelectWindow {
 
     public JButton getStartWorkWithSavingBalanceButton() {
         return startWorkWithSavingBalanceButton;
+    }
+
+    public JButton getSentMoneyToAnotherCardButton() {
+        return sentMoneyToAnotherCardButton;
     }
 }
