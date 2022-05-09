@@ -55,9 +55,9 @@ public class GetMoneyEngine implements ActionListener {
             return;
         }
         if (actions == getMoneyWindow.getInputSumButton()) {
-            getMoneyWindow.getFrame().setVisible(false);
             GetInputMoneySumWindow getInputMoneySumWindow = new GetInputMoneySumWindow();
             getInputMoneySumWindow.createGetInputMoneySumWindow();
+            return;
         }
         if (actions == getMoneyWindow.getEndWorkButton()) {
             getMoneyWindow.getFrame().setVisible(false);

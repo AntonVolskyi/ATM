@@ -31,7 +31,7 @@ public class GetInputMoneySumEngine implements ActionListener {
             }
             GetMoneyEngine getMoneyEngine = new GetMoneyEngine();
             getMoneyEngine.getSumFromCard(sum);
-            //TODO
+            getInputMoneySumWindow.getFrame().setVisible(false);
             return;
         }
         if (action == getInputMoneySumWindow.getCancelButton()) {

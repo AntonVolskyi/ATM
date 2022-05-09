@@ -22,6 +22,7 @@ public class ReceiptEngine implements ActionListener {
         if (action == receiptWindow.getSubmitButton()) {
             Receipt receipt = new Receipt(Receipt.ReceiptType.GETTING_MONEY);
             receipt.createAndPrintReceipt();
+            receiptWindow.getFrame().setVisible(false);
         }
         if (action == receiptWindow.getCancelButton()) {
             receiptWindow.getFrame().setVisible(false);
