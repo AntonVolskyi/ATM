@@ -4,6 +4,7 @@ import dao.BankDBReader;
 import display.ActionSelectWindow;
 import display.ActionWithSaveBalanceWindow;
 import display.GetMoneyWindow;
+import display.SendMoneyToAnotherCardWindow;
 import display.WelcomeWindow;
 import model.UserData;
 
@@ -52,6 +53,12 @@ public class ActionSelectEngine implements ActionListener {
             actionSelectWindow.getFrame().setVisible(false);
             ActionWithSaveBalanceWindow actionWithSaveBalanceWindow = new ActionWithSaveBalanceWindow();
             actionWithSaveBalanceWindow.createActionWithSaveBalanceWindow();
+            return;
+        }
+        if (action == actionSelectWindow.getSentMoneyToAnotherCardButton()) {
+            SendMoneyToAnotherCardWindow sendMoneyToAnotherCardWindow = new SendMoneyToAnotherCardWindow();
+            sendMoneyToAnotherCardWindow.createSendMoneyToAnotherCardWindow();
+            actionSelectWindow.getFrame().setVisible(false);
         }
     }
 }
