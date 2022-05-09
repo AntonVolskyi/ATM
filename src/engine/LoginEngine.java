@@ -52,7 +52,7 @@ public class LoginEngine implements ActionListener {
         if (dbReader.isCorrectPassword(cardNumber, pin)) {
             loginWindow.getFrame().setVisible(false);
             ActionSelectWindow actionSelectWindow = new ActionSelectWindow();
-            actionSelectWindow.createActionSelectionDisplay();
+            actionSelectWindow.createActionSelectWindow();
             UserData.CARD_NUMBER = cardNumber;
         } else {
             attempt--;

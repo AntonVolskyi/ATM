@@ -2,6 +2,7 @@ package engine;
 
 import dao.BankDBReader;
 import display.ActionSelectWindow;
+import display.GetMoneyWindow;
 import display.WelcomeWindow;
 import model.UserData;
 
@@ -24,7 +25,9 @@ public class ActionSelectEngine implements ActionListener {
         Object action = e.getSource();
 
         if (action == actionSelectWindow.getGetMoneyButton()) {
-            //TODO: Create window and engine for getting money from card
+            GetMoneyWindow getMoneyWindow = new GetMoneyWindow();
+            getMoneyWindow.createGetMoneyWindow();
+            actionSelectWindow.getFrame().setVisible(false);
         }
         if (action == actionSelectWindow.getCheckBalanceButton()) {
             JOptionPane.showConfirmDialog(null,

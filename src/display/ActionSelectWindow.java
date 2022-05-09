@@ -19,7 +19,7 @@ public class ActionSelectWindow {
     private Dimension dimension;
     private ActionSelectEngine actionSelectEngine;
 
-    public JPanel createActionSelectionDisplay() {
+    public JPanel createActionSelectWindow() {
         mainWindow = new JPanel(new BorderLayout());
         actionButtonWrapper = new JPanel(new FlowLayout());
         messageWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 200));
@@ -27,7 +27,7 @@ public class ActionSelectWindow {
         checkBalanceButton = new JButton("Перевірити залишок");
         getMoneyButton = new JButton("Зняти кошти");
         endWorkButton = new JButton("Завершити сеанс");
-        message = new JLabel("Виберіть дію: ");
+        message = new JLabel("Виберіть дію");
         frame = new JFrame("Select Action");
         dimension = new Dimension(700,500);
         actionSelectEngine = new ActionSelectEngine(this);
