@@ -1,8 +1,8 @@
-import displays.Displays;
+import display.WelcomeWindow;
 
 public class Main {
     public static void main(String[] args) {
-        Displays displays = new Displays();
-        displays.FirstDisplay();
+        WelcomeWindow welcomeWindow = new WelcomeWindow();
+        welcomeWindow.createWelcomeWindow();
     }
 }

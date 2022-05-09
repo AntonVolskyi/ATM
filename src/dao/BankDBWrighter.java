@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class BankDBWrighter extends ConnectionToBankDB {
 
-    public void ChangeBalance(String cardNumber, int takenMoney) {
+    public void setNewBalance(String cardNumber, int takenMoney) {
         String query = "UPDATE card_balance SET balance = balance - " + takenMoney
                 + " WHERE card_balance.card_number = \'" + cardNumber + "\'";
 

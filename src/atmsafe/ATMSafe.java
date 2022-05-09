@@ -1,8 +1,8 @@
-package strongbox;
+package atmsafe;
 
 import java.io.*;
 
-public class Strongbox {
+public class ATMSafe {
     public double ATMMoneyReader(){
 
         double ATMMoney  = 0;
