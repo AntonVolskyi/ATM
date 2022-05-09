@@ -12,7 +12,8 @@ public class ActionSelectWindow {
     private JPanel messageWrapper;
     private JPanel endWorkWrapper;
     private JButton checkBalanceButton;
-    private JButton getMoneyButton;
+    private JButton getMoneyFromBalanceButton;
+    private JButton startWorkWithSavingBalanceButton;
     private JButton endWorkButton;
     private JLabel message;
     private JFrame frame;
@@ -25,8 +26,9 @@ public class ActionSelectWindow {
         messageWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 200));
         endWorkWrapper = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         checkBalanceButton = new JButton("Перевірити залишок");
-        getMoneyButton = new JButton("Зняти кошти");
+        getMoneyFromBalanceButton = new JButton("Зняти кошти");
         endWorkButton = new JButton("Завершити сеанс");
+        startWorkWithSavingBalanceButton = new JButton("Ощадний рахунок");
         message = new JLabel("Виберіть дію");
         frame = new JFrame("Select Action");
         dimension = new Dimension(700,500);
@@ -34,10 +36,11 @@ public class ActionSelectWindow {
 
         messageWrapper.add(message);
 
-        actionButtonWrapper.add(getMoneyButton);
+        actionButtonWrapper.add(getMoneyFromBalanceButton);
         actionButtonWrapper.add(checkBalanceButton);
+        actionButtonWrapper.add(startWorkWithSavingBalanceButton);
 
-        getMoneyButton.addActionListener(actionSelectEngine);
+        getMoneyFromBalanceButton.addActionListener(actionSelectEngine);
         checkBalanceButton.addActionListener(actionSelectEngine);
         endWorkButton.addActionListener(actionSelectEngine);
 
@@ -62,24 +65,12 @@ public class ActionSelectWindow {
         return checkBalanceButton;
     }
 
-    public void setCheckBalanceButton(JButton checkBalanceButton) {
-        this.checkBalanceButton = checkBalanceButton;
-    }
-
-    public JButton getGetMoneyButton() {
-        return getMoneyButton;
-    }
-
-    public void setGetMoneyButton(JButton getMoneyButton) {
-        this.getMoneyButton = getMoneyButton;
+    public JButton getGetMoneyFromBalanceButton() {
+        return getMoneyFromBalanceButton;
     }
 
     public JButton getEndWorkButton() {
         return endWorkButton;
-    }
-
-    public void setEndWorkButton(JButton endWorkButton) {
-        this.endWorkButton = endWorkButton;
     }
 
     public JFrame getFrame() {

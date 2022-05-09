@@ -24,7 +24,7 @@ public class ActionSelectEngine implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object action = e.getSource();
 
-        if (action == actionSelectWindow.getGetMoneyButton()) {
+        if (action == actionSelectWindow.getGetMoneyFromBalanceButton()) {
             GetMoneyWindow getMoneyWindow = new GetMoneyWindow();
             getMoneyWindow.createGetMoneyWindow();
             actionSelectWindow.getFrame().setVisible(false);
@@ -38,6 +38,10 @@ public class ActionSelectEngine implements ActionListener {
             return;
         }
         if (action == actionSelectWindow.getEndWorkButton()) {
+            JOptionPane.showConfirmDialog(null,
+                    "Забрати карту із приймача",
+                    "Take card",
+                    JOptionPane.PLAIN_MESSAGE);
             actionSelectWindow.getFrame().setVisible(false);
             WelcomeWindow welcomeWindow = new WelcomeWindow();
             welcomeWindow.createWelcomeWindow();
