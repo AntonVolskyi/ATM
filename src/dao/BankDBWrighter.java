@@ -18,4 +18,17 @@ public class BankDBWrighter extends ConnectionToBankDB {
             System.err.println(e.getMessage());
         }
     }
+
+    public void setNewSaveBalance(String cardNumber, int takenMoney) {
+        String query = "update card_balance set balance = balance - " + takenMoney +
+                ", saving_balance = saving_balance + " + takenMoney +
+                "where card_number = \'" + cardNumber + "\'";
+        try (Connection connection = getConnection()) {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            System.err.println("Connection to DB failed!");
+            System.err.println(e.getMessage());
+        }
+    }
 }

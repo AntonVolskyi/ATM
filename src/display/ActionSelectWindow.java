@@ -43,6 +43,7 @@ public class ActionSelectWindow {
         getMoneyFromBalanceButton.addActionListener(actionSelectEngine);
         checkBalanceButton.addActionListener(actionSelectEngine);
         endWorkButton.addActionListener(actionSelectEngine);
+        startWorkWithSavingBalanceButton.addActionListener(actionSelectEngine);
 
         endWorkWrapper.add(endWorkButton);
 
@@ -79,5 +80,9 @@ public class ActionSelectWindow {
 
     public void setFrame(JFrame frame) {
         this.frame = frame;
+    }
+
+    public JButton getStartWorkWithSavingBalanceButton() {
+        return startWorkWithSavingBalanceButton;
     }
 }

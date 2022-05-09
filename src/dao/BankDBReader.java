@@ -63,4 +63,22 @@ public class BankDBReader extends ConnectionToBankDB {
         }
         return result;
     }
+
+    public  String getCardSaveBalance(String cardNumber) {
+        String query = "SELECT card_balance.saving_balance FROM card_balance WHERE card_balance.card_number = \'" + cardNumber + "\'";
+        String result = "0";
+
+        try (Connection connection = getConnection()) {
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                result = resultSet.getString("saving_balance");
+            }
+        } catch (SQLException e) {
+            System.err.println("Connection to DB failed!");
+            System.err.println(e.getMessage());
+        }
+        return result;
+    }
 }

@@ -2,6 +2,7 @@ package engine;
 
 import dao.BankDBReader;
 import display.ActionSelectWindow;
+import display.ActionWithSaveBalanceWindow;
 import display.GetMoneyWindow;
 import display.WelcomeWindow;
 import model.UserData;
@@ -46,6 +47,11 @@ public class ActionSelectEngine implements ActionListener {
             WelcomeWindow welcomeWindow = new WelcomeWindow();
             welcomeWindow.createWelcomeWindow();
             return;
+        }
+        if (action == actionSelectWindow.getStartWorkWithSavingBalanceButton()) {
+            actionSelectWindow.getFrame().setVisible(false);
+            ActionWithSaveBalanceWindow actionWithSaveBalanceWindow = new ActionWithSaveBalanceWindow();
+            actionWithSaveBalanceWindow.createActionWithSaveBalanceWindow();
         }
     }
 }

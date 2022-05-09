@@ -7,6 +7,7 @@ import display.GetInputMoneySumWindow;
 import display.GetMoneyWindow;
 import display.ReceiptWindow;
 import display.WelcomeWindow;
+import model.Receipt;
 import model.UserData;
 import atmsafe.ATMSafe;
 
@@ -106,7 +107,7 @@ public class GetMoneyEngine implements ActionListener {
                 "Take Money",
                 JOptionPane.PLAIN_MESSAGE);
 
-        ReceiptWindow receiptWindow = new ReceiptWindow();
+        ReceiptWindow receiptWindow = new ReceiptWindow(Receipt.ReceiptType.GETTING_MONEY);
         receiptWindow.createReceiptWindow();
     }
 }
