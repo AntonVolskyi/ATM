@@ -7,7 +7,8 @@ import java.util.Date;
 
 public class Receipt {
     public enum ReceiptType {
-        GETTING_MONEY("Зняття коштів");
+        GETTING_MONEY("Зняття коштів"),
+        TRANSF_TO_SAVE_BALANCE("Переказ на ощад. рахунок");
 
         private final String operationName;
 

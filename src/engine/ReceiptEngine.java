@@ -20,7 +20,7 @@ public class ReceiptEngine implements ActionListener {
         Object action = e.getSource();
 
         if (action == receiptWindow.getSubmitButton()) {
-            Receipt receipt = new Receipt(Receipt.ReceiptType.GETTING_MONEY);
+            Receipt receipt = new Receipt(receiptWindow.getOperationType());
             receipt.createAndPrintReceipt();
             receiptWindow.getFrame().setVisible(false);
         }

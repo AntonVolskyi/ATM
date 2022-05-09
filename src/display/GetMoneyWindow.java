@@ -24,12 +24,13 @@ public class GetMoneyWindow {
     private GetMoneyEngine getMoneyEngine;
 
     public JPanel createGetMoneyWindow() {
+
         mainWindow = new JPanel(new BorderLayout());
         frame = new JFrame("Select Action");
         dimension = new Dimension(700,500);
         get100Button = new JButton("Зняти 100");
         get200Button = new JButton("Зняти 200");
-        get500Button = new JButton("зняти 500");
+        get500Button = new JButton("Зняти 500");
         get1000Button = new JButton("Зняти 1000");
         inputSumButton = new JButton("Ввести суму");
         toActionSelectWindowButton = new JButton("Повернутися до вікна вибору дії");
