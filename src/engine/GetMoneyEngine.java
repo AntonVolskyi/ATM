@@ -60,6 +60,10 @@ public class GetMoneyEngine implements ActionListener {
             return;
         }
         if (actions == getMoneyWindow.getEndWorkButton()) {
+            JOptionPane.showConfirmDialog(null,
+                    "Забрати карту із приймача",
+                    "Take card",
+                    JOptionPane.PLAIN_MESSAGE);
             getMoneyWindow.getFrame().setVisible(false);
             WelcomeWindow welcomeWindow = new WelcomeWindow();
             welcomeWindow.createWelcomeWindow();
