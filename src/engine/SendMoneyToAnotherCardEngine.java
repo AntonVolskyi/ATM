@@ -55,7 +55,7 @@ public class SendMoneyToAnotherCardEngine implements ActionListener {
             int sum = Integer.parseInt(strSum);
             UserData.SUM_FOR_TAKING = sum;
 
-            if (Integer.parseInt(dbReader.getCardBalance(strCardNumber)) < sum) {
+            if (Integer.parseInt(dbReader.getCardBalance(UserData.CARD_NUMBER)) < sum) {
                 JOptionPane.showConfirmDialog(null,
                         "На вашому балансі недостатньо коштів",
                         "INCORRECT!",
