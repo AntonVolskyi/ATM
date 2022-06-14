@@ -58,6 +58,7 @@ public class GetMoneyEngine implements ActionListener {
         if (actions == getMoneyWindow.getInputSumButton()) {
             GetInputMoneySumWindow getInputMoneySumWindow = new GetInputMoneySumWindow();
             getInputMoneySumWindow.createGetInputMoneySumWindow();
+            getMoneyWindow.getFrame().setVisible(false);
             return;
         }
         if (actions == getMoneyWindow.getEndWorkButton()) {
@@ -90,7 +91,8 @@ public class GetMoneyEngine implements ActionListener {
                     "No money",
                     JOptionPane.PLAIN_MESSAGE);
             return;
-        } else if (moneyInATM < sum) {
+        }
+        if (moneyInATM < sum) {
             JOptionPane.showConfirmDialog(null,
                     "У банкоматі недостатньо коштів",
                     "No money",

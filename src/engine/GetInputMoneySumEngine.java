@@ -19,12 +19,19 @@ public class GetInputMoneySumEngine implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object action = e.getSource();
         String strSum = getInputMoneySumWindow.getInputField().getText();;
-        int sum = Integer.parseInt(strSum);
 
         if (action == getInputMoneySumWindow.getSubmitButton()) {
+            int sum = Integer.parseInt(strSum);
             if ((sum % 10) != 0) {
                 JOptionPane.showConfirmDialog(null,
                         "ВВЕДІТЬ СУМУ КРАТНУ 10",
+                        "WARN!",
+                        JOptionPane.PLAIN_MESSAGE);
+                return;
+            }
+            if (sum == 0) {
+                JOptionPane.showConfirmDialog(null,
+                        "СУМА ДЛЯ ЗНЯТТЯ НЕ МОЖЕ БУТИ 0",
                         "WARN!",
                         JOptionPane.PLAIN_MESSAGE);
                 return;
